@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Session Tracker</title>
+    <style>
+      body {
+        font-family: system-ui, Arial;
+        padding: 16px;
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      .row {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      input,
+      select,
+      button {
+        padding: 8px;
+      }
+      ul {
+        padding-left: 18px;
+      }
+      .card {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 12px;
+        margin-top: 12px;
+      }
+      .muted {
+        color: #666;
+      }
+      .pill {
+        display: inline-block;
+        padding: 2px 8px;
+        border: 1px solid #ddd;
+        border-radius: 999px;
+        margin-right: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Study Session Tracker</h1>
+    <p class="muted">Add tasks, track totals, filter, and auto-save.</p>
+
+    <form id="taskForm" class="row">
+      <input
+        id="topicInput"
+        name="topic"
+        placeholder="Topic (e.g., arrays, DOM)"
+        required
+      />
+      <input
+        id="minutesInput"
+        name="minutes"
+        type="number"
+        min="1"
+        placeholder="Minutes"
+        required
+      />
+      <select id="difficultySelect" name="difficulty" required>
+        <option value="">Difficulty</option>
+        <option value="1">1 (easy)</option>
+        <option value="2">2</option>
+        <option value="3">3 (medium)</option>
+        <option value="4">4</option>
+        <option value="5">5 (hard)</option>
+      </select>
+      <button type="submit">Add</button>
+      <button type="button" id="clearBtn">Clear All</button>
+    </form>
+
+    <div class="card">
+      <div
+        class="row"
+        style="justify-content: space-between; align-items: center"
+      >
+        <div>
+          <strong>Filter:</strong>
+          <input id="filterInput" placeholder="type to filter topics..." />
+          <button id="applyFilterBtn" type="button">Apply</button>
+          <button id="resetFilterBtn" type="button">Reset</button>
+        </div>
+        <div id="stats" class="muted"></div>
+      </div>
+
+      <h3>Tasks</h3>
+      <ul id="taskList"></ul>
+    </div>
+
+    <div class="card">
+      <h3>Skill Map (nested loops demo)</h3>
+      <div id="skillMap" class="muted"></div>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
